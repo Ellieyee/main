@@ -20,17 +20,18 @@
 <li><a href="#Design-Commons">2.6. Common classes</a></li>
 </ul>
 </li>
-<li><a href="#implementation">3. Implementation</a>
+<li><a href="#implementation-2">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#add-student-feature">3.1. Add Student feature</a></li>
 <li><a href="#edit-feature">3.2. Edit feature</a></li>
 <li><a href="#autocorrect-feature">3.3. Autocorrect feature</a></li>
 <li><a href="#autocomplete-feature">3.4. Autocomplete feature</a></li>
 <li><a href="#list-feature">3.5. list feature</a></li>
-<li><a href="#proposed-undo-redo-feature">3.6. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.8. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.9. Configuration</a></li>
+<li><a href="#mark-attendance-feature">3.6. Mark Attendance feature</a></li>
+<li><a href="#proposed-undo-redo-feature">3.7. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -94,14 +95,14 @@
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/Ellieyee/main/docs/diagrams/">diagrams</a> folder.
+The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/AY1920S1-CS2103-T14-2/main/docs/diagrams/">diagrams</a> folder.
 Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how to create and edit diagrams.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/Ellieyee/main/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/Ellieyee/main/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S1-CS2103-T14-2/main/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S1-CS2103-T14-2/main/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -188,13 +189,13 @@ The following class plays an important role at the architecture level:</p>
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/Ellieyee/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/src/main/java/seedu/tarence/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/Ellieyee/main/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/Ellieyee/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103-T14-2/main/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103-T14-2/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -220,12 +221,12 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="https://github.com/Ellieyee/main/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+<a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/src/main/java/seedu/tarence/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Logic</code> uses the <code>AddressBookParser</code> class to parse the user command.</p>
+<p><code>Logic</code> uses the <code>ApplicationParser</code> class to parse the user command.</p>
 </li>
 <li>
 <p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
@@ -242,13 +243,13 @@ The following class plays an important role at the architecture level:</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("deleteStudent i/1")</code> API call.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
 </div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>deleteStudent i/1</code> Command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -262,6 +263,9 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>Besides these main commands, <code>Logic</code> also handles autocorrect and autocomplete functions in response to user input. These are described in sections 3.1 and 3.2 respectively.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
@@ -272,7 +276,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="title">Figure 7. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/Ellieyee/main/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/src/main/java/seedu/tarence/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
@@ -317,7 +321,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/Ellieyee/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-T14-2/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -328,21 +332,45 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>can save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the Address Book data in json format and read it back.</p>
+<p>can save the <code>T.A.rence</code> application data in json format and read it back.</p>
 </li>
 </ul>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">2.5.1. Implementation</a></h4>
+<div class="paragraph">
+<p>When the application is being saved, a list of modules will be serialized into a Json object and written to the file.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">2.5.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>Although the application has 3 core components (modules, tutorials and students), to prevent redundant data being written
+and save on storage space, only the modules will be serialized and saved.</p>
+</div>
+<div class="paragraph">
+<p>This is as the information encapsulated in modules can be used to instantiate tutorial and student objects.</p>
+</div>
+<div class="paragraph">
+<p>A key assumption here is that during the operational usage of the application, data stored in the tutorials and students objects
+correspond to the module object. Ie there are no tutorials or student objects which exist without a corresponding
+module object.</p>
+</div>
+<div class="paragraph">
+<p>Future versions of storage will support saving of Assignment objects.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
 <div class="paragraph">
-<p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
+<p>Classes used by multiple components are in the <code>seedu.tarence.commons</code> package.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
+<h2 id="implementation-2"><a class="link" href="#implementation-2">3. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
@@ -353,7 +381,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>The <code>AddStudent</code> command lets T.A.rence add a student into the specified module and tutorial.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.1.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>AddStudent</code> command must include the name, email, tutorial and module. The tutorial and module can be indicated by the index of the tutorial. Optionally, the user
 can also choose to indicate the student&#8217;s matric number and nusnetid.</p>
@@ -403,7 +431,7 @@ When there are changes to be made for a student (e.g. updating their email or ad
 users will want to be able to update their student&#8217;s details easily without going through the hassle of deleting and adding new student information.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.2.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>edit</code> command must include one of the following:</p>
 </div>
@@ -452,7 +480,7 @@ The user is not allowed to change the tutorial or module that the student is in.
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-edit-executes"><a class="link" href="#aspect-how-edit-executes">Aspect: How edit executes</a></h5>
 <div class="ulist">
@@ -494,7 +522,7 @@ The user is not allowed to change the tutorial or module that the student is in.
 <p>Autocorrect lets T.A.rence find similar commands to the user&#8217;s input, allowing it to catch minor typing mistakes.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.3.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Autocorrect is implemented at the <code>Command</code> level: when <code>Command</code> objects are executed, they attempt to find their data values from the application&#8217;s storage. If these values are not found, they search for lexically similar alternatives, and construct new `Command`s with these suggested values. The user is then prompted to choose one of these suggestions via a single numerical input.</p>
 </div>
@@ -548,7 +576,7 @@ The lifelines for <code>SelectSuggestionCommand</code> and <code>AddStudentComma
 <p>Autoomplete provides an autofill feature similar to that found in most common CLIs.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">3.4.1. Implementation</a></h4>
+<h4 id="implementation-6"><a class="link" href="#implementation-6">3.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Autocomplete is implemented at the <code>Parser</code> level. When the user presses the "TAB" key, <code>AutoCompleteHandler</code>  handles the processing of the input, as opposed to <code>ApplicationParser</code> when the "ENTER" key is pressed.</p>
 </div>
@@ -571,7 +599,7 @@ The lifelines for <code>SelectSuggestionCommand</code> and <code>AddStudentComma
 <p>The <code>list</code> command lets T.A.rence display all students or students from a specific tutorial.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-6"><a class="link" href="#implementation-6">3.5.1. Implementation</a></h4>
+<h4 id="implementation-7"><a class="link" href="#implementation-7">3.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>list</code> command can include no additional input, or the index of the tutorial. When the user executes the <code>list</code> command, the following steps are taken by the application:</p>
 </div>
@@ -607,9 +635,73 @@ The lifelines for <code>SelectSuggestionCommand</code> and <code>AddStudentComma
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.6. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="mark-attendance-feature"><a class="link" href="#mark-attendance-feature">3.6. Mark Attendance feature</a></h3>
+<div class="paragraph">
+<p>The <code>MarkAttendance</code> command lets T.A.rence mark the attendance of a specified student in a tutorial.</p>
+</div>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.6.1. Proposed Implementation</a></h4>
+<h4 id="implementation-8"><a class="link" href="#implementation-8">3.6.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>MarkAttendance</code> command must include the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The week of the tutorial</p>
+</li>
+<li>
+<p>Tutorial name</p>
+</li>
+<li>
+<p>Module code</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Alternatively, the index of the tutorial can be used in place of the tutorial name and module code.
+Optionally, the user can also choose to indicate the student&#8217;s name.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the user uses both the indexing and full input format, the command will throw an error due to ambiguity.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>MarkAttendance</code> command will also automatically be updated within the application&#8217;s storage system and the updated attendance will be reflected in the application&#8217;s GUI.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Below is an activity diagram showing the process of invoking the <code>MarkAttendance</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/MarkAttendanceActivityDiagram.png" alt="MarkAttendanceActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows the interaction with the Logic components as described above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddStudentCommandSequenceDiagram.png" alt="AddStudentCommandSequenceDiagram">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.7. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.7.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -751,7 +843,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -821,20 +913,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.8. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.9, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -865,7 +957,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.9. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1891,4 +1983,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 12:36:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-26 07:57:50 UTC</div></div></div></body></html>
