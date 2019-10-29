@@ -67,7 +67,9 @@ public class AssignmentTablePanel extends UiPart<Region> {
     private void setDefaultPlaceHolderLabel() {
         String defaultMessage = "Welcome to T.A.rence \uD83D\uDE0A\n"
                 + "To see all user commands, type \"help\"\n"
-                + "To view a class assignment, type:\n";
+                + "To view a class assignment, type: \n"
+                + "\"displayScore i/tutorial_index, f/display_format, n/assignment_name\"\n"
+                + "where display format can be \"t\" for table display, or \"g\" for graphical display";
 
         Label placeholder = new Label(defaultMessage);
         assignmentPlaceholder.setPlaceholder(placeholder);
