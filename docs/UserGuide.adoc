@@ -204,6 +204,7 @@ Example:
 * `cd m`
 * `cd s`
 
+// tag::delete[]
 === Deleting a Student : `deleteStudent`
 
 Deletes the specified student.
@@ -254,8 +255,10 @@ Format: `delete INDEX`
 * This will also remove the students and tutorials inside the module.
 
 Examples:
+
 * `deleteModule 2` +
 Deletes the 2nd module.
+// end::delete[]
 
 === Undo Previously-entered Commands : `undo` [coming in v2.0]
 
