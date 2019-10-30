@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -106,16 +107,19 @@ public class AssignmentTablePanel extends UiPart<Region> {
                         super.updateItem(item, empty);
                         if (!isEmpty()) {
                             this.setTextFill(Color.WHITE);
-                            if (item <= lowerPercentile) {
-                                this.setTextFill(Color.RED);
-                            }
-                            if (item >= upperPercentile) {
-                                this.setTextFill(Color.rgb(0, 255, 0));
-                            }
+                            setText(item.toString());
                             if (item == -1) {
-                                setText("");
+                                this.setStyle("-fx-background-color: " + "#606060FF");
+                                setText("Score is not set");
+                            } else if (item >= upperPercentile) {
+                                this.setStyle("-fx-background-color: " + "#2BAE66FF");
+                                setText(item.toString() + " (75th Percentile)");
+                            } else if (item <= lowerPercentile) {
+                                this.setStyle("-fx-background-color: " + "#E94B3CFF");
+                                setText(item.toString() + " (25th Percentile)");
                             } else {
-                                setText(item.toString());
+                                this.setStyle("-fx-background-color: " + "#ffa333");
+                                setText(item.toString() + " (Average)");
                             }
                         }
                     }
@@ -136,6 +140,8 @@ public class AssignmentTablePanel extends UiPart<Region> {
     private void setStatistics(Map<Student, Integer> namesAndScores) {
         this.upperPercentile = calcPercentile(namesAndScores, 75);
         this.lowerPercentile = calcPercentile(namesAndScores, 25);
+        logger.info("Upper percentile: " + upperPercentile);
+        logger.info("Lower percentile: " + lowerPercentile);
     }
 
     /**
@@ -144,9 +150,10 @@ public class AssignmentTablePanel extends UiPart<Region> {
      * @param percentile - percentile to calculate.
      */
     private long calcPercentile(Map<Student, Integer> map, double percentile) {
-        ArrayList<Integer> scores = new ArrayList<Integer>(map.values());
+        ArrayList<Integer> scores = (ArrayList<Integer>) map.values()
+                .stream().filter(i -> i != -1).collect(Collectors.toList());
         Collections.sort(scores);
-        int index = (int) Math.ceil(((double) percentile / (double) 100) * (double) scores.size());
+        int index = (int) Math.ceil((percentile / 100) * scores.size());
         return scores.get(index - 1);
     }
 }
