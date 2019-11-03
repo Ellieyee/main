@@ -115,7 +115,7 @@ Adds a student into a specified tutorial. +
 
 [NOTE]
 ====
-Pre-condition: Module and tutorial slot must already exist inside the application. + 
+Pre-condition: Module and tutorial slot must already exist inside the application. +
 Each student is uniquely identified by a combination of their name, email, nusid and matric number.
 ====
 
@@ -137,7 +137,7 @@ Optionally, the student's matriculation number and/or NUSNET ID can also be spec
 No prefixes are needed for these additional fields.
 
 Alternatively, you can use tutorial index to specify which tutorial to add the student into. +
-The format will be: `addStudent n/[NAME] e/[EMAIL] i/[TUTORIAL_INDEX]` + 
+The format will be: `addStudent n/[NAME] e/[EMAIL] i/[TUTORIAL_INDEX]` +
 
 * E.g addStudent n/John Doe e/johnd@example.com i/1
 
@@ -188,14 +188,14 @@ Examples:
 
 [TIP]
 ====
-Alternatively, You can use the module code and tutorial name to specify the tutorial to be deleted. + 
+Alternatively, You can use the module code and tutorial name to specify the tutorial to be deleted. +
 If the tutorial name is unique, you can simply specify the tutorial name. 
 
 * The format will be: `deleteTutorial tn/[TUTORIAL_NAME]`
 * E.g deleteTutorial tn/tut1
 
-If there are multiple tutorials with the same name, you will need to specify the module code. + 
-The format will then be `deleteTutorial tn/[TUTORIAL_NAME] m/[MOD_CODE]` 
+If there are multiple tutorials with the same name, you will need to specify the module code. +
+The format will then be `deleteTutorial tn/[TUTORIAL_NAME] m/[MOD_CODE]`
 
 * E.g deleteTutorial tn/Lab 1 m/PC1431
 
@@ -384,8 +384,8 @@ Example:
 
 [TIP]
 ====
-You can use either tutorial index or tutorial name with module code to specify the tutorial. + 
-Specifying the student name marks/toggles the attendance of a student, otherwise the entire tutorial will have their attendance marked. 
+You can use either tutorial index or tutorial name with module code to specify the tutorial. +
+Specifying the student name marks/toggles the attendance of a student, otherwise the entire tutorial will have their attendance marked.
 
 * E.g tn/Lab Session m/CS1010S w/1
 
@@ -407,8 +407,8 @@ Example:
 
 [TIP]
 ====
-You can use either tutorial index or tutorial name with module code to specify the tutorial. + 
-The filename field is optional and the tutorial name will be specified as the filename by default. + 
+You can use either tutorial index or tutorial name with module code to specify the tutorial. +
+The filename field is optional and the tutorial name will be specified as the filename by default. +
 
 * E.g exportAttendance i/1 f/exportedAttendance
 ****
@@ -439,7 +439,7 @@ Example:
 
 [TIP]
 ====
-You can use either tutorial index or tutorial name with module code to specify the tutorial. + 
+You can use either tutorial index or tutorial name with module code to specify the tutorial. +
 This will be in the format:
 
 * `addAssignment` tn/[TUTORIAL_NAME] m/[MODULE_CODE] n/[ASSIGNMENT_NAME] score/[MAX_SCORE] sd/[START_DATE] ed/[END_DATE]
@@ -469,8 +469,8 @@ Example:
 
 [TIP]
 ====
-You can use either tutorial index or tutorial name with module code to specify the tutorial. + 
-You can also use i/[ASSIGNMENT INDEX] to specify the assignment, instead of inputting assignment details. + 
+You can use either tutorial index or tutorial name with module code to specify the tutorial. +
+You can also use i/[ASSIGNMENT INDEX] to specify the assignment, instead of inputting assignment details. +
 This will be in the format:
 
 * `deleteAssignment i/[TUTORIAL_INDEX] i/[ASSIGNMENT_INDEX]`
@@ -493,8 +493,8 @@ Example:
 
 [TIP]
 ====
-You can use either tutorial index or tutorial name with module code to specify the tutorial. + 
-Tutorial, Assignment, Student indexes are specified in a fixed order. + 
+You can use either tutorial index or tutorial name with module code to specify the tutorial. +
+Tutorial, Assignment, Student indexes are specified in a fixed order. +
 This will be in the format:
 
 * `setAssignmentScore tn/[TUTORIAL_NAME] m/[MOD_CODE] i/[ASSIGNMENT_INDEX] i/[STUDENT_INDEX] score/[SCORE]`
@@ -553,13 +553,13 @@ Example:
 
 [TIP]
 ====
-You can use also use tutorial name with module code to specify the Tutorial. + 
+You can use also use tutorial name with module code to specify the Tutorial. +
 * This will be the format:
 
 * deleteEvent tn/[TUTORIAL_NAME] m/[MODULE_CODE] n/[EVENT_NAME] sd/[START_TIME] ed/[END_TIME]
 * Eg. deleteEvent tn/Lab 1 m/CS1010 n/Lab01 sd/09-11-2001 0000 ed/31-10-2019 2359
 
-You can also use i/[EVENT INDEX] to specify the Event, instead of inputting Event details. + 
+You can also use i/[EVENT INDEX] to specify the Event, instead of inputting Event details. +
 This will be the format:
 
 * deleteEvent i/[TUTORIAL_INDEX] t/[EVENT_INDEX]
@@ -588,7 +588,7 @@ Example:
 
 [TIP]
 ====
-You can also use the tutorial name with module code to specify the Tutorial. + 
+You can also use the tutorial name with module code to specify the Tutorial. +
 This will be the format:
 
 * i/TARGET [EVENT_INDEX] tn/[TUTORIAL_NAME] m/[MODULE_CODE] n/[EVENT_NAME] (OPTIONAL)
@@ -615,7 +615,7 @@ Example:
 
 [TIP]
 ====
-You can use either tutorial index or tutorial name with module code to specify the Tutorial. + 
+You can use either tutorial index or tutorial name with module code to specify the Tutorial. +
 This will be in the format:
 
 * `listEvents` tn/[TUTORIAL_NAME] m/[MODULE_CODE]
