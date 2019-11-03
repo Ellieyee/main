@@ -29,7 +29,7 @@ If you can type fast, T.A.rence can get your contact management tasks done faste
 
 .  Ensure you have Java `11` or above installed in your Computer.
 .  Download the latest `.jar` link:{URL}/releases[here].
-.  Copy the file to the folder you want to use as the home folder for your Address Book.
+.  Copy the file to the folder you want to use as the home folder for T.A.rence.
 .  Double-click the file to start the app. The GUI should appear in a few seconds.
 +
 image::Ui.png[width="790"]
@@ -39,7 +39,7 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 .  Some example commands you can try:
 
 * *`list`* : lists all students from a given tutorial.
-* **`addStudent`**`n/John Doe e/johnd@example.com m/CS2100, tn/Tutorial-01` : adds a student named `John Doe` into the `Tutorial-01` class inside module `CS2100`.
+* **`addStudent`**` n/John Do e/johnd@example.com m/CS2100 tn/Tutorial-01` : adds a student named `John Doe` into the `Tutorial-01` class inside module `CS2100`.
 * **`deleteStudent`**`3` : deletes the student in index 3
 * *`exit`* : exits the app
 
@@ -65,7 +65,9 @@ Format: `help`
 === Adding a Module: `addModule`
 
 Adds a module to T.A.rence. +
-Format: `addModule m/MODULE_CODE`
+Format: `addModule m/MODULE_CODE`.
+
+Command synonyms: `addMod`, `addmod`, `addmodule`
 
 Examples:
 
@@ -78,6 +80,8 @@ Adds a tutorial slot into the specified module. +
 Pre-condition: Module must already exist inside application.  +
 
 Format: `addTutorial tn/TUTORIAL_NAME st/START_TIME dur/TUTORIAL_DURATION d/TUTORIAL_DAY w/TUTORIAL_WEEKS m/MODULE_CODE`
+
+Command synonyms: `addtut`, `addtutorial`
 
 Example:
 
@@ -101,7 +105,11 @@ Omit `w/` field for the default tutorial weeks (3-13 inclusive).
 Adds a student into a specified tutorial. +
 Pre-condition: Module and tutorial slot must already exist inside the application.
 
-Format: `addStudent n/NAME e/EMAIL tn/TUTORIAL_NAME m/MODULE_CODE`
+* Each student is uniquely identified by their name.
+
+Format: `addStudent n/NAME e/EMAIL tn/TUTORIAL_NAME m/MODULE_CODE`.
+
+Command synonyms: `addstu`, `addstud`, `addstudent`
 
 Example:
 
@@ -117,10 +125,18 @@ Optionally, the student's matriculation number and/or NUSNET ID can also be spec
 No prefixes are needed for these additional fields.
 ****
 
+****
+* Alternatively, you can use tutorial index to specify which tutorial to add the student into.
+* The format will be: `addStudent n/NAME e/EMAIL i/TUTORIAL_INDEX`
+* E.g addStudent n/John Doe e/johnd@example.com i/1
+****
+
 === Deleting a Module : `deleteModule`
 
 Deletes an existing module from T.A.rence, based on it's module list index. +
-Format: `deleteModule INDEX`
+Format: `deleteModule INDEX`.
+
+Command synonyms: `deletemod`, `delmodule`, `delmod`, `deletemodule`
 
 ****
 * Deletes the module at the specified `INDEX` (Based off the module list).
@@ -133,10 +149,18 @@ Examples:
 
 * `deleteModule 1`
 
+****
+* Alternatively, you can use the module code to specify the module to be deleted.
+* The format will be: `deleteModule m/MOD_CODE`
+* E.g deleteModule m/GER1000
+****
+
 === Deleting a Tutorial : `deleteTutorial`
 
 Deletes an existing tutorial from T.A.rence, based on it's tutorial list index. +
 Format: `deleteTutorial INDEX`
+
+Command synonyms: `deletetut`, `deleteclass`, `deltutorial`, `deltut`, `delclass`, `deletetutorial`
 
 ****
 * Deletes the tutorial at the specified `INDEX` (Based off the tutorial list).
@@ -149,10 +173,22 @@ Examples:
 
 * `deleteTutorial 1`
 
+****
+* Alternatively, You can use the module code and tutorial name to specify the tutorial to be deleted.
+* If the tutorial name is unique, you can simply specify the tutorial name.
+* The format will be: `deleteTutorial tn/TUTORIAL_NAME`
+* E.g deleteTutorial tn/tut1
+* If there are multiple tutorials with the same name, you will need to specify the module code
+* The format will then be `deleteTutorial tn/TUTORIAL_NAME m/MOD_CODE`
+* E.g deleteTutorial tn/Lab 1 m/PC1431
+****
+
 === Deleting a Student : `deleteStudent`
 
 Deletes an existing student from T.A.rence, based on their student list index. +
 Format: `deleteStudent INDEX`
+
+Command synonyms: `deletestu`, `deletestud`, `delstudent`, `delstu`, `delstud`, `deletestudent`
 
 ****
 * Deletes the student at the specified `INDEX` (Based off the student list).
@@ -174,11 +210,11 @@ Deletes the 1st person in the results of the `find` command.
 
 Allows user to edit an existing student information
 
-Format: `edit n/[ORIGINAL_STUDENT] n/[EDITED_STUDENT_NAME]`
+Format: `edit [INDEX OF STUDENT] n/[ORIGINAL_STUDENT] n/[EDITED_STUDENT_NAME]`
 
 Example:
 
-* `edit n/Ben n/Ben Leong`
+* `edit 1 n/Ben n/Ben Leong`
 
 //-
 //-****
@@ -208,16 +244,23 @@ Returns `john` and `John Doe`
 * `find Betsy Tim John` +
 Returns any person having names `Betsy`, `Tim`, or `John`
 
-=== Display Tutorial Class' Test Results : `displayScore`
+=== Display Tutorial Class' Test Results : `displayAssignmentScore`
 
 Allows user to display overall results for an exam or assignment. This can be in the form of a graph or table,
 
-Format: `displayScore` i/TUTORIAL_INDEX n/ASSIGNMENT_NAME f/DISPLAY_FORMAT`
+Format: `displayAssignmentScore` i/TUTORIAL_INDEX n/ASSIGNMENT_NAME f/DISPLAY_FORMAT`.
+
+Command synonyms: `displayscore`, `displayassignment`, `displayassignment`
 
 Example:
 
-* `displayScore` i/1 n/Lab01 f/graph
-* `displayScore` i/1 n/Lab01 f/table
+* `displayAssignmentScore` i/1 n/Lab01 f/graph
+* `displayAssignmentScore` i/1 n/Lab01 f/table
+
+****
+* When a new student is added/deleted/modified, the assignment will need to be refreshed.
+* i.e you will need to enter the command again to display the updated scores.
+****
 
 === Display Tutorial Class' Attendance : `displayAttendance`
 
@@ -227,16 +270,25 @@ Full Format: `displayAttendance m/MOD_CODE tn/TUTORIAL_NAME`
 
 Shortcut Format: `displayAttendance i/TUTORIAL_INDEX`
 
+Command Synonyms: `displayatt`, `showattendance`, `showatt`
+
 Example:
 
 * `displayAttendance` m/CS1010 tn/Lab Session
 * `displayAttendance` i/1
+
+****
+* When a new student is added/deleted/modified, the attendance will need to be refreshed.
+* i.e you will need to enter the command again to display the updated attendance.
+****
 
 === Listing Students from a Tutorial : `list`
 
 Lists all students from a particular tutorial slot. If no index is given, all students will be listed.
 
 Format: `list` TUTORIAL_INDEX
+
+Command synonyms: `liststu`, `liststud`, `liststudents`
 
 Example:
 
@@ -248,6 +300,8 @@ Example:
 Toggles the tab switching between tutorial(t), module(m) and student(s) list.
 
 Format: `cd` TAB_TO_SWITCH
+
+Command synonyms: `changetab`
 
 Example:
 
@@ -261,18 +315,24 @@ Imports tutorials via NUSMods url.
 
 Format: `import` [URL]
 
+Command synonyms: `importtutorials`, `importmods`, `importtutorial`
+
 === Marks attendance of a tutorial `markAttendance`
 
 Marks/Toggles attendance of a tutorial or a student.
 
 Format:
+
 * `markAttendance` i/[TUTORIAL_INDEX] w/[WEEK]
 * `markAttendance` tn/[TUTORIAL_NAME] m/[MODULE_NAME] w/[WEEK] n/[STUDENT NAME]
+* WEEK is a positive integer between 1 to 13
+
+Command Synonyms:  `mark`, `marka`, `markatt`
 
 ****
 * You can use either tutorial index or tutorial name with module code to specify the tutorial.
 * Specifying the student name marks/toggles the attendance of a student, otherwise the entire tutorial
-will have their attendance marked.
+will have their attendance marked. (E.g tn/Lab Session m/CS1010S w/1)
 ****
 
 === Exports attendance of a tutorial to csv `exportAttendance`
@@ -280,7 +340,11 @@ will have their attendance marked.
 Exports attendance of a tutorial.
 
 Format:
+
 * `exportAttendance` i/[TUTORIAL_INDEX] f/[FILENAME](Optional)
+* TUTORIAL_INDEX is a non-negative integer (>= 0)
+
+Command Synonyms: `export`, `exporta`, `exportatt`, `exportattendance`
 
 ****
 * You can use either tutorial index or tutorial name with module code to specify the tutorial.
@@ -292,10 +356,18 @@ Format:
 Adds an assignment to a Tutorial.
 
 Format:
+
 * `addAssignment` i/[TUTORIAL_INDEX] n/[ASSIGNMENT_NAME] score/[MAX_SCORE] sd/START_DATE ed/END_DATE
+* TUTORIAL_INDEX is a non-negative integer (>= 0)
+* MAX_SCORE is a non-negative integer
+* START_DATE and END_DATE follows the format of dd-mm-yy hhmm e.g 31-10-2019 2359
+
+Command Synonyms: `adda`, `addasm`, `addassn`, `addassignment`
 
 ****
 * You can use either tutorial index or tutorial name with module code to specify the tutorial.
+* This will be in the format:
+* `addAssignment` tn/TUTORIAL NAME m/MODULE CODE n/ASSIGNMENT NAME score/MAX SCORE sd/START DATE ed/END DATE
 ****
 
 === Deleting an Assignment : `deleteAssignment`
@@ -303,7 +375,13 @@ Format:
 Deletes an Assignment from a Tutorial.
 
 Format:
+
 * `deleteAssignment` i/[TUTORIAL_INDEX] n/[ASSIGNMENT_NAME] score/[MAX_SCORE] sd/START_DATE ed/END_DATE
+* TUTORIAL_INDEX is a non-negative integer (>= 0)
+* MAX_SCORE is a non-negative integer
+* START_DATE and END_DATE follows the format of dd-mm-yy hhmm e.g 31-10-2019 2359
+
+Command Synonyms: `dela`, `delassn`, `delasm`, `deleteassignment`
 
 ****
 * You can use either tutorial index or tutorial name with module code to specify the tutorial.
@@ -315,7 +393,10 @@ Format:
 Sets an Assignment score for a Student.
 
 Format:
+
 * `setAssignmentScore` i/[TUTORIAL_INDEX] i/[ASSIGNMENT_INDEX] i/[STUDENT_INDEX] score/[score]
+
+Command synonyms: `sets`, `setscore`, `setsc`, `setassignmentscore`
 
 ****
 * You can use either tutorial index or tutorial name with module code to specify the tutorial.
@@ -326,13 +407,25 @@ Format:
 
 Adds an Event to a Tutorial.
 
-Format: `addEvent` i/[TUTORIAL_INDEX] n/[EVENT_NAME] sd/[START_DATE] ed/[END_DATE]
+Format:
+
+* `addEvent` i/[TUTORIAL_INDEX] n/[EVENT_NAME] sd/[START_DATE] ed/[END_DATE]
+* TUTORIAL_INDEX is a non-negative integer (>= 0)
+* START_DATE and END_DATE follows the format of dd-mm-yy hhmm e.g 31-10-2019 2359
+
+Command synonyms: `adde`, `addev`, `addevnt`
 
 === Deleting an Event : `deleteEvent`
 
 Adds an Event to a Tutorial.
 
-Format: `addEvent` i/[TUTORIAL_INDEX] n/[EVENT_NAME] sd/[START_DATE] ed/[END_DATE]
+Format:
+
+* `addEvent` i/[TUTORIAL_INDEX] n/[EVENT_NAME] sd/[START_DATE] ed/[END_DATE]
+* TUTORIAL_INDEX is a non-negative integer (>= 0)
+* START_DATE and END_DATE follows the format of dd-mm-yy hhmm e.g 31-10-2019 2359
+
+Command synonyms: `delevnt`, `dele`, `delev`
 
 ****
 * You can use either tutorial index or tutorial name with module code to specify the Tutorial.
@@ -343,7 +436,13 @@ Format: `addEvent` i/[TUTORIAL_INDEX] n/[EVENT_NAME] sd/[START_DATE] ed/[END_DAT
 
 Edits an Event in a Tutorial.
 
-Format: `editEvent` i/[EVENT_INDEX] i/[TUTORIAL_INDEX] n/[EVENT_NAME] sd/[START_DATE] ed/[END_DATE]
+Format:
+
+* `editEvent` i/[EVENT_INDEX] i/[TUTORIAL_INDEX] n/[EVENT_NAME] sd/[START_DATE] ed/[END_DATE]
+* TUTORIAL_INDEX is a non-negative integer (>= 0)
+* START_DATE and END_DATE follows the format of dd-mm-yy hhmm e.g 31-10-2019 2359
+
+Command synonyms: `edev`, `editev`, `edite`
 
 ****
 * You can use either tutorial index or tutorial name with module code to specify the Tutorial.
@@ -354,10 +453,17 @@ Format: `editEvent` i/[EVENT_INDEX] i/[TUTORIAL_INDEX] n/[EVENT_NAME] sd/[START_
 
 Lists Events in a Tutorial.
 
-Format: `listEvents` i/[TUTORIAL_INDEX]
+Format:
+
+* `listEvents` i/[TUTORIAL_INDEX]
+* TUTORIAL_INDEX is a non-negative integer (>= 0)
+
+Command synonyms: `liste`, `listev`, `listevnt`
 
 ****
 * You can use either tutorial index or tutorial name with module code to specify the Tutorial.
+* This will be in the format:
+* `listEvents` tn/TUTORIAL NAME m/MODULE CODE
 ****
 
 === Set start of semester : `setSemStart`
@@ -366,6 +472,9 @@ Sets the start date of the semester. Determines dates of tutorial Events.
 
 Format:
 * `setSemStart` sd/START_DATE
+* START_DATE follows the format of dd-mm-yy hhmm e.g 31-10-2019 2359
+
+Command synonyms: `setsemstart`, `setst`, `setsem`
 
 === Undo Previously-entered Commands : `undo`
 
@@ -376,7 +485,7 @@ Format:
 
 === Clearing all entries : `clear` [coming in v2.0]
 
-Clears all entries from the address book. +
+Clears all entries from the T.A.rence. +
 
 Format: `clear`
 
