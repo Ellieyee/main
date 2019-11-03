@@ -189,7 +189,7 @@ Examples:
 [TIP]
 ====
 Alternatively, You can use the module code and tutorial name to specify the tutorial to be deleted. +
-If the tutorial name is unique, you can simply specify the tutorial name. 
+If the tutorial name is unique, you can simply specify the tutorial name.
 
 * The format will be: `deleteTutorial tn/[TUTORIAL_NAME]`
 * E.g deleteTutorial tn/tut1
