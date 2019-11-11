@@ -83,13 +83,13 @@ include::../UserGuide.adoc[tag=FeatureEditStudent]
 
 include::../UserGuide.adoc[tag=FeatureFind]
 
-include::../UserGuide.adoc[tag=FeatureList]
-
 include::../UserGuide.adoc[tag=FeatureDisplayScore]
 
 include::../UserGuide.adoc[tag=FeatureDisplayAssignments]
 
 include::../UserGuide.adoc[tag=FeatureDisplayAttendance]
+
+include::../UserGuide.adoc[tag=FeatureList]
 
 include::../UserGuide.adoc[tag=FeatureCd]
 
