@@ -73,25 +73,25 @@ https://coveralls.io/github/AY1920S1-CS2103-T14-2/main?branch=master[Coveralls] 
 |_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
 |===
 
-include::../UserGuide.adoc[tag=deletemodule]
+include::../UserGuide.adoc[tag=FeatureDeleteModule]
 
-include::../UserGuide.adoc[tag=deletetutorial]
+include::../UserGuide.adoc[tag=FeatureDeleteTutorial]
 
-include::../UserGuide.adoc[tag=deletestudent]
+include::../UserGuide.adoc[tag=FeatureDeleteStudent]
 
-include::../UserGuide.adoc[tag=edit]
+include::../UserGuide.adoc[tag=FeatureEditStudent]
 
-include::../UserGuide.adoc[tag=find]
+include::../UserGuide.adoc[tag=FeatureFind]
 
-include::../UserGuide.adoc[tag=list]
+include::../UserGuide.adoc[tag=FeatureList]
 
-include::../UserGuide.adoc[tag=displayassignmentscore]
+include::../UserGuide.adoc[tag=FeatureDisplayScore]
 
-include::../UserGuide.adoc[tag=displayassignments]
+include::../UserGuide.adoc[tag=FeatureDisplayAssignments]
 
-include::../UserGuide.adoc[tag=displayattendance]
+include::../UserGuide.adoc[tag=FeatureDisplayAttendance]
 
-include::../UserGuide.adoc[tag=cd]
+include::../UserGuide.adoc[tag=FeatureCd]
 
 == Contributions to the Developer Guide
 
@@ -99,8 +99,10 @@ include::../UserGuide.adoc[tag=cd]
 |_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
 |===
 
-include::../DeveloperGuide.adoc[tag=Design-Ui]
+include::../DeveloperGuide.adoc[tag=architecture]
 
-include::../DeveloperGuide.adoc[tag=edit-feature]
+include::../DeveloperGuide.adoc[tag=ui]
 
-include::../DeveloperGuide.adoc[tag=list-feature]
+include::../DeveloperGuide.adoc[tag=edit]
+
+include::../DeveloperGuide.adoc[tag=list]
